@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping
-public class Controller {
+public class NinjaController {
     
     @GetMapping("/Hello-world")
     public String helloWorld(){
