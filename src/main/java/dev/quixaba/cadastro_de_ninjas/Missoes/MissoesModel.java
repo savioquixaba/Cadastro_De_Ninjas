@@ -7,9 +7,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="tb_missoes")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MissoesModel {
     
     @Id
@@ -22,37 +28,5 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes") 
     private NinjaModel ninja;
     
-    public MissoesModel(){   
-    }
-
-
-    public MissoesModel(long id, String nome_missao, String dificuldade) {
-        this.id = id;
-        this.nome_missao = nome_missao;
-        this.dificuldade = dificuldade;
-    }
-
-
-    public long getId() {
-        return id;
-    }
-
-    public String getNome_missao() {
-        return nome_missao;
-    }
-
-
-    public void setNome_missao(String nome_missao) {
-        this.nome_missao = nome_missao;
-    }
-
-
-    public String getDificuldade() {
-        return dificuldade;
-    }
-
-
-    public void setDificuldade(String dificuldade) {
-        this.dificuldade = dificuldade;
-    }
+    
 }
