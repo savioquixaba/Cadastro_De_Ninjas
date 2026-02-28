@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +17,9 @@ public class MissoesModel {
     private long id;
     private String nome_missao;
     private String dificuldade;
+    
+    //uma missao pode ter varios ninjas
+    @OneToMany(mappedBy = "missoes") 
     private NinjaModel ninja;
     
     public MissoesModel(){   

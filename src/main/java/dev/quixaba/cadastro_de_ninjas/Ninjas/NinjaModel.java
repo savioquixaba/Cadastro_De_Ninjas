@@ -1,9 +1,12 @@
 package dev.quixaba.cadastro_de_ninjas.Ninjas;
 
+import dev.quixaba.cadastro_de_ninjas.Missoes.MissoesModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 // transforma uma classe em uma entidade do BD
@@ -17,7 +20,10 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
-
+    //um ninja tem uma unica missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // chave estrangeira
+    private MissoesModel missoes;
 
     public NinjaModel (){
     }
