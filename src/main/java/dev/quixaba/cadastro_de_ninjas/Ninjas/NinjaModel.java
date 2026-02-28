@@ -1,4 +1,4 @@
-package dev.quixaba.cadastro_de_ninjas;
+package dev.quixaba.cadastro_de_ninjas.Ninjas;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,7 +19,8 @@ public class NinjaModel {
     private int idade;
 
 
-    public NinjaModel (){}
+    public NinjaModel (){
+    }
 
     public NinjaModel(String nome, String email, int idade){
         

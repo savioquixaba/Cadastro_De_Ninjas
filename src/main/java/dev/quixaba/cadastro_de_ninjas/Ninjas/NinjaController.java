@@ -1,4 +1,4 @@
-package dev.quixaba.cadastro_de_ninjas;
+package dev.quixaba.cadastro_de_ninjas.Ninjas;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
