@@ -1,6 +1,7 @@
 package dev.quixaba.cadastro_de_ninjas.Ninjas;
 
 import dev.quixaba.cadastro_de_ninjas.Missoes.MissoesModel;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,9 +23,16 @@ public class NinjaModel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  
+    @Column(name = "id")
     private long id;
+    @Column(name = "nome")
     private String nome;
+    @Column(unique = true)
     private String email;
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    @Column(name = "idade")
     private int idade;
     //um ninja tem uma unica missão
     @ManyToOne
