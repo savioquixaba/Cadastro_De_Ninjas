@@ -1,5 +1,8 @@
 package dev.quixaba.cadastro_de_ninjas.Missoes;
 
+
+import java.util.List;
+
 import dev.quixaba.cadastro_de_ninjas.Ninjas.NinjaModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,7 +33,9 @@ public class MissoesModel {
     
     //uma missao pode ter varios ninjas
     @OneToMany(mappedBy = "missoes") 
-    private NinjaModel ninja;
+    private List<NinjaModel> ninjas;
+    
+    //private List<NinjaModel> ninja;
     
     
 }

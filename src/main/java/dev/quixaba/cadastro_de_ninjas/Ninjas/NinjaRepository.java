@@ -1,5 +1,7 @@
 package dev.quixaba.cadastro_de_ninjas.Ninjas;
 
-public class NinjaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface NinjaRepository extends JpaRepository<NinjaModel, Long>{
     
 }
