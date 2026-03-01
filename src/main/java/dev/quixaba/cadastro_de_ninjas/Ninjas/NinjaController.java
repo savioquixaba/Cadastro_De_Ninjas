@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
     
     @GetMapping("/Hello-world")
@@ -13,23 +13,23 @@ public class NinjaController {
     }
 
     //Adicionar ninja (Create)
-    @PostMapping("/adicionar")
-    public String adicionarNinja(){
+    @PostMapping("/criar")
+    public String criarNinja(){
         return "ninja Criado";
     }
     //Mostrar todos os ninjas(READ)
-    @GetMapping("/todos")
-    public String mostrarNinja(){
+    @GetMapping("/listar")
+    public String listarNinja(){
         return "lista de ninjas";
     }
     //Mostrar Ninja por ID (READ)
-    @GetMapping("/todosID")
+    @GetMapping("/listarID")
     public String mostrarNinjaPorId(){
         return "mostrar ninja por id";
     }
     //Alterar dados dos ninjas
     @PutMapping("/alterar")
-    public String alterarNinja(){
+    public String alterarNinjaPorId(){
         return "ninja alterado";
     }
     //Deletar Ninja

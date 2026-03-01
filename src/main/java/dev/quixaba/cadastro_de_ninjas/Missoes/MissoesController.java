@@ -19,18 +19,14 @@ public class MissoesController {
         return "Missoes listadas com sucesso";
     }
 
-    @GetMapping ("/listarID")
-    public String listarMissaoPorID(){
-        return "Missão listada com sucesso";
-    }
 
-    @PutMapping("/alterar")
+    @PutMapping("/alterarID")
     public String alterarMissaoPorId(){
         return "Missao alterada com sucesso";
     }
 
     //Precisa ser por ID por que se não for, deleta todas as missões no banco
-    @DeleteMapping("/deletar")
+    @DeleteMapping("/deletarID")
     public String deletarMissaoPorId(){
         return "Missao deletada com sucesso";
     }
