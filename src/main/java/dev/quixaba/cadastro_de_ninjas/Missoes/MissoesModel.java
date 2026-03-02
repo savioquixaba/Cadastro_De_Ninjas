@@ -3,6 +3,7 @@ package dev.quixaba.cadastro_de_ninjas.Missoes;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.quixaba.cadastro_de_ninjas.Ninjas.NinjaModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +33,8 @@ public class MissoesModel {
     private String dificuldade;
     
     //uma missao pode ter varios ninjas
-    @OneToMany(mappedBy = "missoes") 
+    @OneToMany(mappedBy = "missoes")
+    @JsonIgnore // Evitar serialização e Loop infinito nas listas
     private List<NinjaModel> ninjas;
     
     //private List<NinjaModel> ninja;

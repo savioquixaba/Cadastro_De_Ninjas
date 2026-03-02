@@ -1,5 +1,21 @@
 package dev.quixaba.cadastro_de_ninjas.Ninjas;
 
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
 public class NinjaService {
-    
+
+    private NinjaRepository ninjaRepository;
+
+    public NinjaService(NinjaRepository ninjaRepository) {
+        this.ninjaRepository = ninjaRepository;
+    }
+
+    public List<NinjaModel> listarNinjas(){
+        //precisa ser o alias dado na inicilização do objeto
+        return ninjaRepository.findAll();
+    }
+
 }
