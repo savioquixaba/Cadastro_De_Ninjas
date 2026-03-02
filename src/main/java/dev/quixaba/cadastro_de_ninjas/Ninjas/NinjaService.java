@@ -3,6 +3,7 @@ package dev.quixaba.cadastro_de_ninjas.Ninjas;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NinjaService {
@@ -16,6 +17,13 @@ public class NinjaService {
     public List<NinjaModel> listarNinjas(){
         //precisa ser o alias dado na inicilização do objeto
         return ninjaRepository.findAll();
+    }
+
+    public NinjaModel buscarNinjaPorId(Long id){
+        Optional<NinjaModel> NinjaId = ninjaRepository.findById(id);
+        return NinjaId.orElse(null);
+
+
     }
 
 }
