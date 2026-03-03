@@ -23,7 +23,10 @@ public class NinjaService {
         Optional<NinjaModel> NinjaId = ninjaRepository.findById(id);
         return NinjaId.orElse(null);
 
+    }
 
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
     }
 
 }
