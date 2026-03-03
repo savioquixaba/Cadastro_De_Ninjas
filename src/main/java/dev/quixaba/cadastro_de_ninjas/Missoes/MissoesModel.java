@@ -36,8 +36,5 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes")
     @JsonIgnore // Evitar serialização e Loop infinito nas listas
     private List<NinjaModel> ninjas;
-    
-    //private List<NinjaModel> ninja;
-    
-    
+
 }
