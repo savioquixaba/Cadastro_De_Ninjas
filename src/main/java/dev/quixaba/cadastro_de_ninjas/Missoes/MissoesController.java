@@ -1,12 +1,20 @@
 package dev.quixaba.cadastro_de_ninjas.Missoes;
 
 
+import dev.quixaba.cadastro_de_ninjas.Ninjas.NinjaService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("missoes")
+@RequestMapping("/missoes")
 public class MissoesController {
 
+    private MissoesService missoesService;
+
+    public MissoesController(MissoesService missoesService) {
+        this.missoesService = missoesService;
+    }
 
     @PostMapping("/Criar")
     public String criarMissao(){
@@ -15,8 +23,8 @@ public class MissoesController {
 
 
     @GetMapping ("/listar")
-    public String listarMissao(){
-        return "Missoes listadas com sucesso";
+    public List<MissoesModel> listarMissoes(){
+        return missoesService.listarMissoes();
     }
 
 
