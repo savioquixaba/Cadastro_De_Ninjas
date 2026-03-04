@@ -39,10 +39,10 @@ public class NinjaController {
         return ninjaService.buscarNinjaPorId(id);
     }
     //Alterar dados dos ninjas
+    @PutMapping("/alterar/{id}")
+    public NinjaModel alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado){
+        return ninjaService.alterarNinja(id, ninjaAtualizado);
 
-    @PutMapping("/alterar")
-    public String alterarNinjaPorId(){
-        return "ninja alterado";
     }
 
     //Deletar Ninja
