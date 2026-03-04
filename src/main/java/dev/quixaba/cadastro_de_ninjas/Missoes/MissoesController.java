@@ -16,9 +16,9 @@ public class MissoesController {
         this.missoesService = missoesService;
     }
 
-    @PostMapping("/Criar")
-    public String criarMissao(){
-        return "Missao criada";
+    @PostMapping("/criar")
+    public MissoesModel criarMissao(@RequestBody MissoesModel missao){
+        return missoesService.criarMissao(missao);
     }
 
 
@@ -43,5 +43,6 @@ public class MissoesController {
     public String deletarMissaoPorId(){
         return "Missao deletada com sucesso";
     }
+
 
 }

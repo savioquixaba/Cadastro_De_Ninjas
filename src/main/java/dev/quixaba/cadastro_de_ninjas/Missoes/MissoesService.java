@@ -1,6 +1,7 @@
 package dev.quixaba.cadastro_de_ninjas.Missoes;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,8 @@ public class MissoesService {
     public List<MissoesModel> listarMissoes(){
         return missoesRepository.findAll();
     }
+
+
     public MissoesModel listarPorId(Long id){
         // Busca a missão pelo ID no banco de dados
         // findById sempre executa a consulta e retorna um Optional
@@ -24,7 +27,9 @@ public class MissoesService {
         // orElse(null): retorna o objeto se encontrado, ou null se não existir
         return missaoId.orElse(null);
     }
-
+    public MissoesModel criarMissao(MissoesModel missao){
+        return missoesRepository.save(missao);
+    }
 
 }
 
