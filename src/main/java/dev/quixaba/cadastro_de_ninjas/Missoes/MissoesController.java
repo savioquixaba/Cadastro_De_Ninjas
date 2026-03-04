@@ -39,9 +39,9 @@ public class MissoesController {
     }
 
     //Precisa ser por ID por que se não for, deleta todas as missões no banco
-    @DeleteMapping("/deletarID")
-    public String deletarMissaoPorId(){
-        return "Missao deletada com sucesso";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarMissaoPorId(@PathVariable Long id){
+        missoesService.deletarPorId(id);
     }
 
 
