@@ -38,6 +38,7 @@ public class NinjaModel {
     @ManyToOne
     @JoinColumn(name = "missoes_id") // chave estrangeira
     private MissoesModel missoes;
-
+    @Column(name = "rank")
+    private String rank;
     
 }
