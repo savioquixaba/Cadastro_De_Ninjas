@@ -1,5 +1,7 @@
 package dev.quixaba.cadastro_de_ninjas.Ninjas;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,9 +24,11 @@ public class NinjaController {
 
     //Adicionar ninja (Create)
     @PostMapping("/criar")
-    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninja){
+    public ResponseEntity<String> criarNinja(@RequestBody NinjaDTO ninja){
 
-        return ninjaService.criarNinja(ninja);
+        NinjaDTO novoNinja = ninjaService.criarNinja(ninja);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body("Ninja Criado com sucesso: " + novoNinja.getNome() + " , " + "ID: " + novoNinja.getId());
     }
 
     //Mostrar todos os ninjas(READ)
