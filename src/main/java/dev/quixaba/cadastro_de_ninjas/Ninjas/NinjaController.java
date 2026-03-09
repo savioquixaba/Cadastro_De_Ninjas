@@ -4,6 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -33,9 +35,13 @@ public class NinjaController {
 
     //Mostrar todos os ninjas(READ)
     @GetMapping("/listar")
-    public List<NinjaDTO> listarNinjas(){
-
-        return ninjaService.listarNinjas();
+    public ResponseEntity<List<NinjaDTO>> listarNinjas(){
+        List<NinjaDTO> lista = ninjaService.listarNinjas();
+        if (lista != null) {
+            return ResponseEntity.ok(lista);
+        }else {
+            return ResponseEntity.ok(Collections.emptyList());
+        }
     }
 
     //Mostrar Ninja por ID (READ)
