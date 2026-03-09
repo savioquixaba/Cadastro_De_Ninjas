@@ -46,9 +46,14 @@ public class NinjaController {
 
     //Mostrar Ninja por ID (READ)
     @GetMapping("/listar/{id}")
-    public NinjaDTO listarNinjaPorId(@PathVariable Long id){
-
-        return ninjaService.buscarNinjaPorId(id);
+    public ResponseEntity<NinjaDTO> listarNinjaPorId(@PathVariable Long id) {
+        NinjaDTO ninja = ninjaService.buscarNinjaPorId(id);
+        if (ninjaService.buscarNinjaPorId(id) != null) {
+            return ResponseEntity.ok(ninja);
+        }else {
+            //retorna null por que não existe Objeto a ser retornado
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
     //Alterar dados dos ninjas
     @PutMapping("/alterar/{id}")
