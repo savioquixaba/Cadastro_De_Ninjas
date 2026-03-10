@@ -1,7 +1,7 @@
 package dev.quixaba.cadastro_de_ninjas.Missoes;
 
 
-import dev.quixaba.cadastro_de_ninjas.Ninjas.NinjaService;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class MissoesController {
     }
 
     @PostMapping("/criar")
-    public MissoesModel criarMissao(@RequestBody MissoesModel missao){
+    public MissoesSimplesDTO criarMissao(@RequestBody MissoesSimplesDTO missao){
         return missoesService.criarMissao(missao);
     }
 
@@ -28,16 +28,15 @@ public class MissoesController {
     }
 
     @GetMapping ("/listar/{id}")
-    public MissoesModel listarMissoesPorId(@PathVariable Long id){
+    public MissoesSimplesDTO listarMissoesPorId(@PathVariable Long id){
         return missoesService.listarPorId(id);
     }
 
 
     @PutMapping("/alterarID")
-    public String alterarMissaoPorId(){
-        return "Missao alterada com sucesso";
+    public MissoesSimplesDTO alterarNinjaPorId(@PathVariable Long id, @RequestBody MissoesSimplesDTO missaoAtt) {
+        return missoesService.alterarMissao(id, missaoAtt);
     }
-
     //Precisa ser por ID por que se não for, deleta todas as missões no banco
     @DeleteMapping("/deletar/{id}")
     public void deletarMissaoPorId(@PathVariable Long id){
