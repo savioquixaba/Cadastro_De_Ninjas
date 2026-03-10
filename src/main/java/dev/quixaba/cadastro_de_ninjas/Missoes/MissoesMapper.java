@@ -21,9 +21,19 @@ public class MissoesMapper {
 
         missoesDTO.setId(missoesModel.getId());
         missoesDTO.setNome_missao(missoesModel.getNome_missao());
-        missoesDTO.setDificuldade(missoesDTO.getDificuldade());
+        missoesDTO.setDificuldade(missoesModel.getDificuldade());
         missoesDTO.setNinjas(missoesModel.getNinjas());
 
         return missoesDTO;
+    }
+
+    public MissoesSimplesDTO mapSimples(MissoesModel missoesModel){
+        MissoesSimplesDTO missoesSimplesDTO = new MissoesSimplesDTO();
+
+        missoesSimplesDTO.setId(missoesModel.getId());
+        missoesSimplesDTO.setNome_missao(missoesModel.getNome_missao());
+        missoesSimplesDTO.setDificuldade(missoesModel.getDificuldade());
+
+        return missoesSimplesDTO;
     }
 }
