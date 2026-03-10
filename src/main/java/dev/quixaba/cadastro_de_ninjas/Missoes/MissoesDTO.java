@@ -1,8 +1,6 @@
 package dev.quixaba.cadastro_de_ninjas.Missoes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.quixaba.cadastro_de_ninjas.Ninjas.NinjaModel;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +19,8 @@ public class MissoesDTO {
 
     private String dificuldade;
 
+    // deixa o codigo com referencia circular porem é conceito avançado.
     private List<NinjaModel> ninjas;
+
+
 }

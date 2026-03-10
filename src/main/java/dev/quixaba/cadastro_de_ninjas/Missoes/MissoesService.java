@@ -6,21 +6,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class MissoesService {
 
-    private final NinjaRepository ninjaRepository;
+
     private MissoesRepository missoesRepository;
+    private MissoesMapper missoesMapper;
 
-    public MissoesService(MissoesRepository missoesRepository, NinjaRepository ninjaRepository) {
+    public MissoesService(MissoesRepository missoesRepository, MissoesMapper missoesMapper) {
         this.missoesRepository = missoesRepository;
-        this.ninjaRepository = ninjaRepository;
+        this.missoesMapper = missoesMapper;
+
     }
 
-    public List<MissoesModel> listarMissoes(){
-        return missoesRepository.findAll();
+    public List<MissoesSimplesDTO> listarMissoes() {
+        //inicializa a variavel e armazena a lista de missoes
+        List<MissoesModel> missoes = missoesRepository.findAll();
+        // o map vai percorrer a lista, e para cada item na lista do model, vai transformar para DTO
+        return missoes.stream().map(missao -> missoesMapper.mapSimples(missao)).collect(Collectors.toList());
     }
+
 
 
     public MissoesModel listarPorId(Long id){

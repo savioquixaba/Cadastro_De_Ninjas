@@ -23,7 +23,7 @@ public class MissoesController {
 
 
     @GetMapping ("/listar")
-    public List<MissoesModel> listarMissoes(){
+    public List<MissoesSimplesDTO> listarMissoes(){
         return missoesService.listarMissoes();
     }
 
