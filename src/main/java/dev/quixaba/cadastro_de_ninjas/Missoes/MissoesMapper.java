@@ -36,4 +36,14 @@ public class MissoesMapper {
 
         return missoesSimplesDTO;
     }
+
+    public MissoesModel mapSimples(MissoesSimplesDTO missoesSimplesDTO){
+        MissoesModel missoesModel = new MissoesModel();
+
+        missoesModel.setId(missoesSimplesDTO.getId());
+        missoesModel.setNome_missao(missoesSimplesDTO.getNome_missao());
+        missoesModel.setDificuldade(missoesSimplesDTO.getDificuldade());
+
+        return missoesModel;
+    }
 }
